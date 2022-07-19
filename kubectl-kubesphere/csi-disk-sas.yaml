@@ -1,0 +1,19 @@
+# csi-disk-sas.yaml
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+    storageclass.kubesphere.io/support-snapshot: "false"
+  name: csi-disk-sas
+parameters:
+  csi.storage.k8s.io/csi-driver-name: disk.csi.everest.io
+  csi.storage.k8s.io/fstype: ext4
+  # Bind Huawei “high I/O storage. If use “extremely high I/O, change it to SSD.
+  everest.io/disk-volume-type: SAS
+  everest.io/passthrough: "true"
+provisioner: everest-csi-provisioner
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: Immediate

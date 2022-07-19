@@ -18,7 +18,7 @@ Once the CCE cluster has been launched, you will see the default csi storage bei
 
 > Huawei CCE built-in Everest CSI provides StorageClass `csi-disk` which uses SATA (normal I/O) by default, but the actual disk that is used for Kubernetes clusters is either SAS (high I/O) or SSD (extremely high I/O). Therefore, it is suggested that you create an extra StorageClass and set it as **default**. Refer to the official document - [Use kubectl to create a cloud storage](https://support.huaweicloud.com/en-us/usermanual-cce/cce_01_0044.html).
 
-Please make sure that you run the storageclass file, else the workload will fail. For more info on the ks-installer, refer to - https://github.com/kubesphere/ks-installer
+Please make sure that you run this--> [storageclass yaml file](https://github.com/jeanhw1231/kubesphere/blob/main/kubectl-kubesphere/csi-disk-sas.yaml), else the workload will fail. For more info on the ks-installer, refer to - https://github.com/kubesphere/ks-installer
 ![csi-disk-sas yaml](https://github.com/jeanhw1231/kubesphere/blob/main/pics/2a_cce_kubesphere_pods_csi-disk-sas.png)
 If you don't run the storage class configuration, you will see the log message indicating "Default storage class was not found":
 ![ks-installer-failed](https://github.com/jeanhw1231/kubesphere/blob/main/pics/3c_ks-installer.png)
@@ -56,11 +56,12 @@ With the newly obtained EIP, access KubeSphere via the browser:
 
 
 ## 4. Explore KubeSphere
-Can view overall resource usage on the main console:
+
+### I) View overall resource usage on the main console:
 ![default_Kubesphere console](https://github.com/jeanhw1231/kubesphere/blob/main/pics/3j_access_kubesphere_console_default.png)
-View Cluster Nodes:
+### II) View Cluster Nodes:
 ![cluster nodes](https://github.com/jeanhw1231/kubesphere/blob/main/pics/3k_access_kubesphere_console_clusterNodes.png)
-View the projects created on the cluster:
+### III) View the projects created on the cluster:
 ![project view](https://github.com/jeanhw1231/kubesphere/blob/main/pics/3k_access_kubesphere_console_projectview.png)
 ![project listing](https://github.com/jeanhw1231/kubesphere/blob/main/pics/3m_access_kubesphere_console_projlisting.png)
 - you can also create new project within the KubeSphere console as well:
@@ -79,5 +80,6 @@ If you follow the demo for previous ***NGINX ingress controller deployment***, y
 ![cafe route](https://github.com/jeanhw1231/kubesphere/blob/main/pics/3r_access_kubesphere_console_cafe_nginxRoutes.png)
 ![cafe route details](https://github.com/jeanhw1231/kubesphere/blob/main/pics/3s_access_kubesphere_console_cafe_nginxRoutes_details.png)
 ![cafe route annotations](https://github.com/jeanhw1231/kubesphere/blob/main/pics/3t_access_kubesphere_console_cafe_nginxRoutes_annotations.png)
-View CCE Cluster Status via KubeSphere:
-![Cluster Status view1](https://github.com/jeanhw1231/kubesphere/blob/main/pics/4_Cluster_Status.png)![Cluster status view2](https://github.com/jeanhw1231/kubesphere/blob/main/pics/4a_Cluster_Status_Request_Monitoring.png)
+### IV) View CCE Cluster Status via KubeSphere:
+![Cluster Status view1](https://github.com/jeanhw1231/kubesphere/blob/main/pics/4_Cluster_Status.png)
+![Cluster status view2](https://github.com/jeanhw1231/kubesphere/blob/main/pics/4a_Cluster_Status_Request_Monitoring.png)
